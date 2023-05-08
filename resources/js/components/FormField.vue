@@ -6,8 +6,6 @@
         :full-width-content="fullWidthContent"
     >
         <template #field>
-            VALUE:::: {{ fieldValue }} IMG {{ isImage }}
-
             <template v-if="isVideo">
                 <video controls width="300">
                     <source :src="fileData.url" :type="videoType"/>
@@ -26,7 +24,10 @@
             <button
                 :disabled="field.readonly"
                 @click.prevent="openKontainer"
-                class="btn btn-default btn-primary inline-flex items-center relative"
+                class="shadow relative bg-primary-500 hover:bg-primary-400 text-white dark:text-gray-900 cursor-pointer
+                rounded text-sm font-bold focus:outline-none focus:ring ring-primary-200 dark:ring-gray-600 inline-flex
+                items-center justify-center h-9 px-3 shadow relative bg-primary-500 hover:bg-primary-400 text-white
+                dark:text-gray-900"
                 v-text="fieldValue ? __('Edit') : __('Browse')"
             >
                 {{ __('Browse') }}
@@ -35,7 +36,10 @@
                 v-if="fieldValue"
                 :disabled="field.readonly"
                 @click.prevent="remove"
-                class="btn btn-default btn-primary inline-flex items-center relative"
+                class="shadow relative bg-primary-500 hover:bg-primary-400 text-white dark:text-gray-900 cursor-pointer
+                rounded text-sm font-bold focus:outline-none focus:ring ring-primary-200 dark:ring-gray-600 inline-flex
+                items-center justify-center h-9 px-3 shadow relative bg-primary-500 hover:bg-primary-400 text-white
+                dark:text-gray-900"
             >
                 {{ __('Unlink') }}
             </button>
